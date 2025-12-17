@@ -27,9 +27,45 @@ class CypherService {
             throw new Error('Query not entered!');
         } else {
             try {
-                let resultSet = await this._graphRepository.execute(query);
+                // Get current graph name
+                const graphName = this._graphRepository._graph;
+                if (!graphName) {
+                    throw new Error('No graph selected. Please select a graph first.');
+                }
+
+                // Parse RETURN clause to determine column count
+                const returnMatch = query.match(/RETURN\s+(.+?)(?:\s+ORDER\s+|\s+LIMIT\s+|\s+SKIP\s+|$)/is);
+                let columnDefs = 'result agtype';
+
+                if (returnMatch) {
+                    const returnClause = returnMatch[1].trim();
+                    // Split by comma, but not commas inside parentheses, brackets, or braces
+                    const columns = returnClause.split(/,(?![^(]*\))(?![^\[]*\])(?![^{]*\})/);
+                    columnDefs = columns.map((col, idx) => {
+                        const trimmed = col.trim();
+                        // Check for explicit AS alias first
+                        const explicitAlias = trimmed.match(/\s+AS\s+(\w+)\s*$/i);
+                        if (explicitAlias) {
+                            return `${explicitAlias[1]} agtype`;
+                        }
+                        // For simple variable (n, a, b, etc.)
+                        if (/^\w+$/.test(trimmed)) {
+                            return `${trimmed} agtype`;
+                        }
+                        // For property access (n.name, n.config.storage.type), use generic name
+                        return `col${idx} agtype`;
+                    }).join(', ');
+                }
+
+                // Wrap Cypher query in the AGE cypher() function
+                const wrappedQuery = `SELECT * FROM cypher('${graphName}', $$ ${query} $$) AS (${columnDefs})`;
+
+                console.log('Executing wrapped query:', wrappedQuery);
+
+                let resultSet = await this._graphRepository.execute(wrappedQuery);
                 return this.createResult(resultSet);
             } catch (err) {
+                console.error('Query error:', err.message);
                 throw err;
             }
         }
