@@ -17,28 +17,39 @@
  * under the License.
  */
 
+/* ═══════════════════════════════════════════════════════════
+   FRAME STYLES
+   ═══════════════════════════════════════════════════════════ */
+
 .Frame {
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #FFFFFF;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, .125);
-  border-radius: .25rem;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
   margin-top: 1rem;
   overflow-y: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s ease;
+}
+
+.Frame:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
 .Frame.FullScreen {
   margin-top: 0;
+  border-radius: 0;
 }
 
 .FrameBody {
-  transition: all 0.3s;
+  transition: all 0.25s ease;
   opacity: 1;
-  padding: 15px 30px;
+  padding: 16px 24px;
 }
 
 .FrameBody.NoPadding {
@@ -49,37 +60,50 @@
   opacity: 0;
   height: 0;
   padding: 0;
-  transition: all 0.3s;
+  transition: all 0.25s ease;
 }
 
 .FrameHeader {
   height: auto;
   align-items: center;
-  background-color: rgba(0, 0, 0, .03);
-  padding: 10px 10px 10px 30px;
-  border-bottom: 1px solid rgba(0, 0, 0, .125);
+  background: linear-gradient(to bottom, #FAFAFA 0%, #F8FAFC 100%);
+  padding: 12px 16px 12px 20px;
+  border-bottom: 1px solid #E2E8F0;
   display: flex;
-  color: #6c757d;
+  color: #475569;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
 }
 
 .FrameHeaderText {
   flex: 1;
+  font-weight: 600;
+  color: #334155;
 }
 
 .FrameButton {
-  color: gray;
+  color: #94A3B8;
+  transition: all 0.15s ease;
+  padding: 6px 8px;
+  border-radius: 6px;
 }
 
 .FrameButton:focus {
-  color: gray;
+  color: #64748B;
+  outline: none;
 }
 
 .FrameButton:hover {
-  color: black;
+  color: #6366F1;
+  background-color: #EEF2FF;
 }
 
 .FrameButton.activate {
-  color: black;
+  color: #6366F1;
+  background-color: #EEF2FF;
 }
 
 .ButtonArea {
@@ -105,10 +129,31 @@
   flex: 1;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   CHART CONTAINER STYLES
+   ═══════════════════════════════════════════════════════════ */
+
 .Chart {
   width: 100%;
   display: block;
   overflow: hidden;
+  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%);
+  position: relative;
+}
+
+/* Subtle dot grid pattern */
+.Chart::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .NormalChart {

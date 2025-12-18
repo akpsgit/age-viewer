@@ -17,81 +17,108 @@
  * under the License.
  */
 
+// Color palette with better contrast and visual harmony
+// Using Tailwind-inspired colors for a contemporary look
 export const nodeLabelColors = [
+  // Indigo - Primary
   {
-    color: '#604A0E', borderColor: '#423204', fontColor: '#FFF', nodeLabels: new Set([]), index: 0,
+    color: '#6366F1', borderColor: '#4F46E5', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 0,
   },
+  // Emerald - Success/Growth
   {
-    color: '#C990C0', borderColor: '#B261A5', fontColor: '#FFF', nodeLabels: new Set([]), index: 1,
+    color: '#10B981', borderColor: '#059669', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 1,
   },
+  // Amber - Warning/Attention
   {
-    color: '#F79767', borderColor: '#F36924', fontColor: '#FFF', nodeLabels: new Set([]), index: 2,
+    color: '#F59E0B', borderColor: '#D97706', fontColor: '#1F2937', nodeLabels: new Set([]), index: 2,
   },
+  // Rose - Important/Alert
   {
-    color: '#57C7E3', borderColor: '#23B3D7', fontColor: '#2A2C34', nodeLabels: new Set([]), index: 3,
+    color: '#F43F5E', borderColor: '#E11D48', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 3,
   },
+  // Cyan - Information
   {
-    color: '#F16667', borderColor: '#EB2728', fontColor: '#FFF', nodeLabels: new Set([]), index: 4,
+    color: '#06B6D4', borderColor: '#0891B2', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 4,
   },
+  // Violet - Creative
   {
-    color: '#D9C8AE', borderColor: '#C0A378', fontColor: '#2A2C34', nodeLabels: new Set([]), index: 5,
+    color: '#8B5CF6', borderColor: '#7C3AED', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 5,
   },
+  // Orange - Energy
   {
-    color: '#8DCC93', borderColor: '#5DB665', fontColor: '#2A2C34', nodeLabels: new Set([]), index: 6,
+    color: '#F97316', borderColor: '#EA580C', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 6,
   },
+  // Teal - Balance
   {
-    color: '#ECB5C9', borderColor: '#DA7298', fontColor: '#2A2C34', nodeLabels: new Set([]), index: 7,
+    color: '#14B8A6', borderColor: '#0D9488', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 7,
   },
+  // Pink - Soft highlight
   {
-    color: '#498EDA', borderColor: '#2870C2', fontColor: '#FFF', nodeLabels: new Set([]), index: 8,
+    color: '#EC4899', borderColor: '#DB2777', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 8,
   },
+  // Sky - Calm
   {
-    color: '#FFC454', borderColor: '#D7A013', fontColor: '#2A2C34', nodeLabels: new Set([]), index: 9,
+    color: '#0EA5E9', borderColor: '#0284C7', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 9,
   },
+  // Lime - Fresh
   {
-    color: '#DA7194', borderColor: '#CC3C6C', fontColor: '#FFF', nodeLabels: new Set([]), index: 10,
+    color: '#84CC16', borderColor: '#65A30D', fontColor: '#1F2937', nodeLabels: new Set([]), index: 10,
   },
+  // Slate - Neutral
   {
-    color: '#569480', borderColor: '#447666', fontColor: '#FFF', nodeLabels: new Set([]), index: 11,
+    color: '#64748B', borderColor: '#475569', fontColor: '#FFFFFF', nodeLabels: new Set([]), index: 11,
   },
 ];
 
+// Edge colors - slightly muted versions for better visual hierarchy
 export const edgeLabelColors = [
+  // Slate - Default neutral
   {
-    color: '#CCA63D', borderColor: '#997000', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 0,
+    color: '#64748B', borderColor: '#475569', fontColor: '#1F2937', edgeLabels: new Set([]), index: 0,
   },
+  // Indigo
   {
-    color: '#C990C0', borderColor: '#B261A5', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 1,
+    color: '#818CF8', borderColor: '#6366F1', fontColor: '#1F2937', edgeLabels: new Set([]), index: 1,
   },
+  // Emerald
   {
-    color: '#F79767', borderColor: '#F36924', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 2,
+    color: '#34D399', borderColor: '#10B981', fontColor: '#1F2937', edgeLabels: new Set([]), index: 2,
   },
+  // Amber
   {
-    color: '#57C7E3', borderColor: '#23B3D7', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 3,
+    color: '#FBBF24', borderColor: '#F59E0B', fontColor: '#1F2937', edgeLabels: new Set([]), index: 3,
   },
+  // Rose
   {
-    color: '#F16667', borderColor: '#EB2728', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 4,
+    color: '#FB7185', borderColor: '#F43F5E', fontColor: '#1F2937', edgeLabels: new Set([]), index: 4,
   },
+  // Cyan
   {
-    color: '#D9C8AE', borderColor: '#C0A378', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 5,
+    color: '#22D3EE', borderColor: '#06B6D4', fontColor: '#1F2937', edgeLabels: new Set([]), index: 5,
   },
+  // Violet
   {
-    color: '#8DCC93', borderColor: '#5DB665', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 6,
+    color: '#A78BFA', borderColor: '#8B5CF6', fontColor: '#1F2937', edgeLabels: new Set([]), index: 6,
   },
+  // Orange
   {
-    color: '#ECB5C9', borderColor: '#DA7298', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 7,
+    color: '#FB923C', borderColor: '#F97316', fontColor: '#1F2937', edgeLabels: new Set([]), index: 7,
   },
+  // Teal
   {
-    color: '#498EDA', borderColor: '#2870C2', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 8,
+    color: '#2DD4BF', borderColor: '#14B8A6', fontColor: '#1F2937', edgeLabels: new Set([]), index: 8,
   },
+  // Pink
   {
-    color: '#FFC454', borderColor: '#D7A013', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 9,
+    color: '#F472B6', borderColor: '#EC4899', fontColor: '#1F2937', edgeLabels: new Set([]), index: 9,
   },
+  // Sky
   {
-    color: '#DA7194', borderColor: '#CC3C6C', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 10,
+    color: '#38BDF8', borderColor: '#0EA5E9', fontColor: '#1F2937', edgeLabels: new Set([]), index: 10,
   },
+  // Lime
   {
-    color: '#569480', borderColor: '#447666', fontColor: '#2A2C34', edgeLabels: new Set([]), index: 11,
+    color: '#A3E635', borderColor: '#84CC16', fontColor: '#1F2937', edgeLabels: new Set([]), index: 11,
   },
 ];
 

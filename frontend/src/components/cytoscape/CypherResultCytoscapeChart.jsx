@@ -177,7 +177,7 @@ const CypherResultCytoscapeCharts = ({
     if (cytoscapeMenu === null && cytoscapeObject !== null) {
       const cxtMenuConf = {
         menuRadius(ele) {
-          return ele.cy().zoom() <= 1 ? 55 : 70;
+          return ele.cy().zoom() <= 1 ? 60 : 75;
         },
         selector: 'node',
         commands: [
@@ -196,17 +196,17 @@ const CypherResultCytoscapeCharts = ({
             select(ele) {
               const elAnimate = ele.animation({
                 style: {
-                  'border-color': 'green',
-                  'border-width': '11px',
+                  'border-color': '#10B981',
+                  'border-width': '8px',
                 },
-                duration: 1000,
+                duration: 800,
               });
               elAnimate.play();
               const animateTimer = setInterval(() => {
                 if (elAnimate.complete()) {
                   elAnimate.reverse().play();
                 }
-              }, 1000);
+              }, 800);
 
               fetch('/api/v1/cypher', {
                 method: 'POST',
@@ -282,16 +282,17 @@ const CypherResultCytoscapeCharts = ({
             },
           },
         ],
-        fillColor: 'rgba(210, 213, 218, 1)',
-        activeFillColor: 'rgba(166, 166, 166, 1)',
-        activePadding: 0,
+        // Frosted glass effect colors
+        fillColor: 'rgba(241, 245, 249, 0.95)',
+        activeFillColor: 'rgba(99, 102, 241, 0.9)',
+        activePadding: 2,
         indicatorSize: 0,
-        separatorWidth: 4,
-        spotlightPadding: 3,
-        minSpotlightRadius: 11,
-        maxSpotlightRadius: 99,
+        separatorWidth: 2,
+        spotlightPadding: 4,
+        minSpotlightRadius: 14,
+        maxSpotlightRadius: 100,
         openMenuEvents: 'cxttap',
-        itemColor: '#2A2C34',
+        itemColor: '#334155',
         itemTextShadowColor: 'transparent',
         zIndex: 9999,
         atMouse: false,
