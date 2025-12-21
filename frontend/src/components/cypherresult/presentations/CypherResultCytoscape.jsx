@@ -76,6 +76,26 @@ const CypherResultCytoscape = forwardRef((props, ref) => {
     props.setChartLegend(props.data.legend);
   }, []);
 
+  // Auto-switch to table view when there are no graph elements (e.g., scalar results)
+  useEffect(() => {
+    const hasNoGraphElements = props.data.elements
+      && props.data.elements.nodes.length === 0
+      && props.data.elements.edges.length === 0;
+
+    if (hasNoGraphElements && props.setIsTable) {
+      props.setIsTable(true);
+      // Also update DOM classes to show table tab
+      const graphEl = document.getElementById(`${props.refKey}-graph`);
+      const tableEl = document.getElementById(`${props.refKey}-table`);
+      if (graphEl && tableEl) {
+        graphEl.classList.remove('selected-frame-tab');
+        graphEl.classList.add('deselected-frame-tab');
+        tableEl.classList.remove('deselected-frame-tab');
+        tableEl.classList.add('selected-frame-tab');
+      }
+    }
+  }, [props.data.elements, props.refKey]);
+
   const getCaptionsFromCytoscapeObject = (elementType, label) => {
     const elementsObject = cytoscapeObject.elements(`${elementType}[label = "${label}"]`).jsons();
     let extendedSet = new Set([]);
