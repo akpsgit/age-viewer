@@ -25,8 +25,8 @@ const MenuSlice = createSlice({
   name: 'navigator',
   initialState: {
     menuList: [['home', faHome], ['setting', faCog]],
-    activeMenu: 'home',
-    isActive: true,
+    activeMenu: '',
+    isActive: false,
   },
   reducers: {
     toggleMenu: {
