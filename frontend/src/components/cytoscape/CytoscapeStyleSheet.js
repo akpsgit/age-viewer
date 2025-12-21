@@ -84,10 +84,10 @@ export const stylesheet = [
       'text-halign': 'center',
       color(ele) { return ele ? ele.data('fontColor') : '#FFFFFF'; },
       'font-family': '"Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-      'font-size': '11px',
+      'font-size': '9px',
       'font-weight': '500',
       'text-wrap': 'ellipsis',
-      'text-max-width': (ele) => (ele ? ele.data('size') - 10 : 45),
+      'text-max-width': (ele) => (ele ? ele.data('size') - 8 : 65),
       'text-outline-width': '0px',
       'text-outline-color': 'transparent',
 
@@ -101,7 +101,7 @@ export const stylesheet = [
     },
   },
 
-  // Node hover state - subtle highlight
+  // Node hover state - subtle highlight + show full label
   {
     selector: 'node.highlight',
     style: {
@@ -111,6 +111,15 @@ export const stylesheet = [
       'overlay-opacity': 0.08,
       'overlay-color': '#22D3EE',
       'z-index': 20,
+      // Show full label on hover
+      'text-max-width': '200px',
+      'text-wrap': 'wrap',
+      'text-background-color': '#1E293B',
+      'text-background-opacity': 0.9,
+      'text-background-padding': '4px',
+      'text-background-shape': 'roundrectangle',
+      color: '#FFFFFF',
+      'font-size': '11px',
     },
   },
 

@@ -123,11 +123,11 @@ export const edgeLabelColors = [
 ];
 
 export const nodeLabelSizes = [
-  { size: 11, labels: new Set([]), index: 0 },
-  { size: 33, labels: new Set([]), index: 0 },
-  { size: 55, labels: new Set([]), index: 0 },
-  { size: 77, labels: new Set([]), index: 0 },
-  { size: 99, labels: new Set([]), index: 0 },
+  { size: 25, labels: new Set([]), index: 0 },
+  { size: 50, labels: new Set([]), index: 0 },
+  { size: 75, labels: new Set([]), index: 0 },
+  { size: 100, labels: new Set([]), index: 0 },
+  { size: 125, labels: new Set([]), index: 0 },
 ];
 
 export const edgeLabelSizes = [
