@@ -73,20 +73,20 @@ const Frame = ({
     <div className={`${styles.Frame} ${isFullScreen ? styles.FullScreen : ''}`}>
       <div className={styles.FrameHeader}>
         <div className={styles.FrameHeaderText}>
-          {'$ '}
-          <strong>
-            {reqString}
-          </strong>
-          <FontAwesomeIcon
-            id={styles.toEditor}
-            title="copy to editor"
-            icon={faClone}
-            size="s"
-            onClick={() => dispatch(setCommand(reqString))}
-            style={{
-              cursor: 'pointer',
-            }}
-          />
+          <div className={styles.QueryContainer}>
+            <span className={styles.QueryText}>
+              {'$ '}
+              <strong>
+                {reqString}
+              </strong>
+            </span>
+            <FontAwesomeIcon
+              title="copy to editor"
+              icon={faClone}
+              onClick={() => dispatch(setCommand(reqString))}
+              className={styles.CopyButton}
+            />
+          </div>
         </div>
         <div className={styles.ButtonArea}>
           {!isTable && onThick ? (

@@ -80,8 +80,40 @@
 
 .FrameHeaderText {
   flex: 1;
-  font-weight: 600;
-  color: #334155;
+  min-width: 0;
+}
+
+.QueryContainer {
+  display: flex;
+  align-items: flex-start;
+  background-color: #F1F5F9;
+  padding: 8px 10px 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+  gap: 10px;
+}
+
+.QueryText {
+  flex: 1;
+  font-weight: 500;
+  color: #1E293B;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.CopyButton {
+  color: #94A3B8;
+  cursor: pointer;
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.CopyButton:hover {
+  color: #6366F1;
 }
 
 .FrameButton {
@@ -164,9 +196,6 @@
   height: 100% !important;
 }
 
-#toEditor:hover{
-  color:rgb(20, 33, 55)
-}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
