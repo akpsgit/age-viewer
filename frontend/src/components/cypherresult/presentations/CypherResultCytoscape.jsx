@@ -29,6 +29,7 @@ import CypherResultCytoscapeChart from '../../cytoscape/CypherResultCytoscapeCha
 import CypherResultCytoscapeLegend from '../../cytoscape/CypherResultCytoscapeLegend';
 import CypherResultCytoscapeFooter from '../../cytoscape/CypherResultCytoscapeFooter';
 import CypherResultTab from '../../cytoscape/CypherResultTab';
+import ElementDetailPanel from '../../cytoscape/ElementDetailPanel';
 
 const CypherResultCytoscape = forwardRef((props, ref) => {
   const [footerData, setFooterData] = useState({});
@@ -42,6 +43,15 @@ const CypherResultCytoscape = forwardRef((props, ref) => {
 
   const [cytoscapeObject, setCytoscapeObject] = useState(null);
   const [cytoscapeLayout, setCytoscapeLayout] = useState('coseBilkent');
+  const [selectedElement, setSelectedElement] = useState(null);
+
+  const handleElementClick = (elementData) => {
+    setSelectedElement(elementData);
+  };
+
+  const handleClosePanel = () => {
+    setSelectedElement(null);
+  };
 
   useEffect(() => {
     if (props.data.legend !== undefined && Object.keys(props.data.legend.nodeLegend).length > 0) {
@@ -377,22 +387,29 @@ const CypherResultCytoscape = forwardRef((props, ref) => {
         />
         <CypherResultTab refKey={props.refKey} setIsTable={props.setIsTable} currentTab="graph" />
       </div>
-      <CypherResultCytoscapeChart
-        onElementsMouseover={getFooterData}
-        legendData={legendData}
-        elements={elements}
-        setCytoscapeObject={setCytoscapeObject}
-        cytoscapeObject={cytoscapeObject}
-        cytoscapeLayout={cytoscapeLayout}
-        addLegendData={addLegendData}
-        maxDataOfGraph={maxDataOfGraph}
-        graph={props.graph}
-        onAddSubmit={props.onAddSubmit}
-        onRemoveSubmit={props.onRemoveSubmit}
-        openModal={props.openModal}
-        addGraphHistory={props.addGraphHistory}
-        addElementHistory={props.addElementHistory}
-      />
+      <div className="cytoscape-chart-wrapper">
+        <ElementDetailPanel
+          element={selectedElement}
+          onClose={handleClosePanel}
+        />
+        <CypherResultCytoscapeChart
+          onElementsMouseover={getFooterData}
+          onElementClick={handleElementClick}
+          legendData={legendData}
+          elements={elements}
+          setCytoscapeObject={setCytoscapeObject}
+          cytoscapeObject={cytoscapeObject}
+          cytoscapeLayout={cytoscapeLayout}
+          addLegendData={addLegendData}
+          maxDataOfGraph={maxDataOfGraph}
+          graph={props.graph}
+          onAddSubmit={props.onAddSubmit}
+          onRemoveSubmit={props.onRemoveSubmit}
+          openModal={props.openModal}
+          addGraphHistory={props.addGraphHistory}
+          addElementHistory={props.addElementHistory}
+        />
+      </div>
       <CypherResultCytoscapeFooter
         captions={captions}
         colorChange={colorChange}

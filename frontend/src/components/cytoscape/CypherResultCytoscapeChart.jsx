@@ -62,6 +62,7 @@ const CypherResultCytoscapeCharts = ({
   cytoscapeLayout,
   maxDataOfGraph,
   onElementsMouseover,
+  onElementClick,
   addLegendData,
   graph,
   onAddSubmit,
@@ -100,6 +101,10 @@ const CypherResultCytoscapeCharts = ({
 
     targetElements.bind('click', (e) => {
       const ele = e.target;
+      // Open side panel with element data
+      if (onElementClick) {
+        onElementClick(ele.data());
+      }
       if (ele.selected() && ele.isNode()) {
         if (cytoscapeObject.nodes(':selected').size() === 1) {
           ele.neighborhood().selectify().select().unselectify();
@@ -339,6 +344,7 @@ const CypherResultCytoscapeCharts = ({
 
 CypherResultCytoscapeCharts.defaultProps = {
   cytoscapeObject: null,
+  onElementClick: null,
 };
 
 CypherResultCytoscapeCharts.propTypes = {
@@ -362,6 +368,7 @@ CypherResultCytoscapeCharts.propTypes = {
   cytoscapeLayout: PropTypes.string.isRequired,
   maxDataOfGraph: PropTypes.number.isRequired,
   onElementsMouseover: PropTypes.func.isRequired,
+  onElementClick: PropTypes.func,
   addLegendData: PropTypes.func.isRequired,
   graph: PropTypes.string.isRequired,
   onAddSubmit: PropTypes.func.isRequired,

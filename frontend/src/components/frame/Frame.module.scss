@@ -137,23 +137,7 @@
   width: 100%;
   display: block;
   overflow: hidden;
-  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%);
-  position: relative;
-}
-
-/* Subtle dot grid pattern */
-.Chart::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(circle, #CBD5E1 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 0;
+  background: #F8FAFC;
 }
 
 .NormalChart {

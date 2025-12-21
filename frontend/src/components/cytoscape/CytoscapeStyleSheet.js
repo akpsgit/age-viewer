@@ -63,12 +63,12 @@ export const stylesheet = [
 
       // Shape & Colors
       shape: 'ellipse',
-      'background-color': function (ele) { return ele ? ele.data('backgroundColor') : '#6366F1'; },
+      'background-color': (ele) => (ele ? ele.data('backgroundColor') : '#6366F1'),
       'background-opacity': 1,
 
       // Border - subtle glow effect
       'border-width': '3px',
-      'border-color': function (ele) { return ele ? ele.data('borderColor') : '#4F46E5'; },
+      'border-color': (ele) => (ele ? ele.data('borderColor') : '#4F46E5'),
       'border-opacity': 0.8,
 
       // Shadow for depth (using overlay)
@@ -87,7 +87,7 @@ export const stylesheet = [
       'font-size': '11px',
       'font-weight': '500',
       'text-wrap': 'ellipsis',
-      'text-max-width': function (ele) { return ele ? ele.data('size') - 10 : 45; },
+      'text-max-width': (ele) => (ele ? ele.data('size') - 10 : 45),
       'text-outline-width': '0px',
       'text-outline-color': 'transparent',
 
@@ -144,7 +144,7 @@ export const stylesheet = [
     style: {
       // Line styling
       width(ele) { return ele ? Math.max(ele.data('size'), 1.5) : 2; },
-      'line-color': function (ele) { return ele ? ele.data('backgroundColor') : '#94A3B8'; },
+      'line-color': (ele) => (ele ? ele.data('backgroundColor') : '#94A3B8'),
       'line-opacity': 0.75,
       'line-cap': 'round',
 
@@ -154,7 +154,7 @@ export const stylesheet = [
 
       // Arrow styling
       'target-arrow-shape': 'triangle',
-      'target-arrow-color': function (ele) { return ele ? ele.data('backgroundColor') : '#94A3B8'; },
+      'target-arrow-color': (ele) => (ele ? ele.data('backgroundColor') : '#94A3B8'),
       'arrow-scale': 1.2,
 
       // Label styling
