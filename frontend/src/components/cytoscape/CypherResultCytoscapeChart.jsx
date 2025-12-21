@@ -326,6 +326,14 @@ const CypherResultCytoscapeCharts = ({
   const cyCallback = useCallback(
     (newCytoscapeObject) => {
       if (cytoscapeObject) return;
+      // Listen for container resize (e.g., fullscreen toggle) and fit graph
+      newCytoscapeObject.on('resize', () => {
+        try {
+          newCytoscapeObject.fit(undefined, 30); // 30px padding
+        } catch (e) {
+          // Ignore resize errors during transitions
+        }
+      });
       setCytoscapeObject(newCytoscapeObject);
     },
     [cytoscapeObject],

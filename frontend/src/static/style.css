@@ -501,6 +501,12 @@ a.nav-link.active {
     height: 100%;
     display: flex;
     flex-direction: column;
+    min-height: 0; /* Important for nested flex to work properly */
+}
+
+/* Fullscreen: ensure chart area fills the space */
+.FullScreen .chart-frame-area {
+    flex: 1;
 }
 
 .chart-area {
@@ -730,6 +736,18 @@ a.nav-link.active {
     display: flex;
     flex: 1;
     overflow: hidden;
+    min-height: 0; /* Important for flex children to shrink */
+}
+
+/* Fullscreen: make the chart fill available space */
+.FullScreen .cytoscape-chart-wrapper {
+    height: 100%;
+}
+
+.FullScreen .cytoscape-chart-wrapper > div[class*="NormalChart"],
+.FullScreen .cytoscape-chart-wrapper > div[class*="MetaChart"] {
+    height: 100% !important;
+    flex: 1;
 }
 
 .element-detail-panel {
